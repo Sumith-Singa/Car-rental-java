@@ -39,28 +39,27 @@ public class CarRentalSystem extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Rent per day setup
         carRentMap.put("Toyota Fortuner", 2000.0);
         carRentMap.put("Honda Civic", 1840.0);
         carRentMap.put("BMW X5", 3020.0);
         carRentMap.put("Hyundai Verna", 1500.0);
         carRentMap.put("KIA Seltos", 2500.0);
 
-        // Available car numbers
+        
         availableCars.put("Toyota Fortuner", new ArrayList<>(Arrays.asList("KA-01-AA-1234", "KA-01-AA-5678")));
         availableCars.put("Honda Civic", new ArrayList<>(Arrays.asList("KA-02-BB-1111", "KA-02-BB-2222")));
         availableCars.put("BMW X5", new ArrayList<>(Collections.singletonList("KA-03-CC-3333")));
         availableCars.put("Hyundai Verna", new ArrayList<>(Arrays.asList("KA-04-DD-4444", "KA-04-DD-5555")));
         availableCars.put("KIA Seltos", new ArrayList<>(Collections.singletonList("KA-05-EE-6666")));
 
-        // Title
+        
         JLabel title = new JLabel("Car Rental Management System", JLabel.CENTER);
         title.setFont(new Font("SansSerif", Font.BOLD, 24));
         title.setForeground(new Color(25, 89, 174));
         title.setBorder(BorderFactory.createEmptyBorder(15, 0, 10, 0));
         add(title, BorderLayout.NORTH);
 
-        // Form Panel
+        
         JPanel form = new JPanel(new GridLayout(7, 2, 12, 10));
         form.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         form.setBackground(new Color(235, 245, 255));
@@ -98,7 +97,7 @@ public class CarRentalSystem extends JFrame {
 
         add(form, BorderLayout.WEST);
 
-        // Table Setup
+        
         model = new DefaultTableModel(
                 new String[] { "Car Model", "Car No.", "Customer", "Contact", "Days", "Total Rent" }, 0);
         table = new JTable(model);
@@ -109,7 +108,7 @@ public class CarRentalSystem extends JFrame {
         pane.setBorder(BorderFactory.createTitledBorder("Rented Cars"));
         add(pane, BorderLayout.CENTER);
 
-        // Bottom Panel (Search + Buttons)
+        
         JPanel bottom = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
         bottom.setBackground(new Color(235, 245, 255));
 
@@ -127,7 +126,7 @@ public class CarRentalSystem extends JFrame {
 
         add(bottom, BorderLayout.SOUTH);
 
-        // Button Events
+        
         btnAdd.addActionListener(e -> addRental());
         btnSearch.addActionListener(e -> searchRental());
         btnDelete.addActionListener(e -> deleteRental());
